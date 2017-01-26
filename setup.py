@@ -10,31 +10,32 @@
 ## Description :
 ## --
 ## Created : <2017-01-24>
-## Updated: Time-stamp: <2017-01-26 16:46:27>
+## Updated: Time-stamp: <2017-01-26 17:11:13>
 ##-------------------------------------------------------------------
 from setuptools import setup
-from pypandoc import convert_file
 
-#: Converts the Markdown README in the RST format that PyPi expects.
-long_description = convert_file('README.md', 'rst')
+# TODO
+long_description = '''
+Python precheck package for DevOps purpose
+'''
 
 setup(name='devopsprecheck',
-      description='Python precheck package for DevOps purpose'
+      description='Python precheck package for DevOps purpose',
       long_description=long_description,
-      version='0.0.1',
+      version='0.0.2',
       url='https://github.com/DennyZhang/devopsprecheck',
       author='DennyZhang',
       author_email='contact@denyzhang.com',
       license='Apache2',
       classifiers=[
-          'Development Status :: 1 - Beta',
-          'Intended Audience :: DevOps enigneers',
+          'Development Status :: 5 - Production/Stable',
+          'Intended Audience :: Developers',
           'License :: OSI Approved :: Apache Software License',
-          'Programming Language :: Python :: 3'
+          'Programming Language :: Python'
       ],
       packages=['devopsprecheck'],
       install_requires=[
-          # TODO
+          'pypandoc'
       ],
       entry_points={
           'console_scripts': [
