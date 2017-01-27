@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-24>
-## Updated: Time-stamp: <2017-01-27 17:18:54>
+## Updated: Time-stamp: <2017-01-27 17:43:13>
 ##-------------------------------------------------------------------
 
 __author__ = 'DennyZhang'
@@ -84,8 +84,9 @@ def parse_ip_from_string(string):
           ['172.17.0.2', '172.17.0.3', '172.17.0.4']
     '''
     string_without_comment = string_strip_comments(string)
-    # TODO: update this
-    l = ['172.17.0.2', '172.17.0.3', '172.17.0.4']
+    regexp = re.compile('\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}')
+    l = regexp.findall(string_without_comment)
+    l = list(set(l))
     return l
 
 # TODO: parameters check
