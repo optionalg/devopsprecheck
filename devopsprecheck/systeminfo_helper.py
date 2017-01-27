@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-24>
-## Updated: Time-stamp: <2017-01-27 16:04:38>
+## Updated: Time-stamp: <2017-01-27 17:17:01>
 ##-------------------------------------------------------------------
 
 __author__ = 'DennyZhang'
@@ -18,6 +18,7 @@ __email__ = 'contact@denyzhang.com'
 
 import platform
 import re
+import getpass
 
 def fail_unless_os(supported_os_list = ['x86_64-with-Ubuntu-14.04']):
     # Sample:
@@ -28,6 +29,15 @@ def fail_unless_os(supported_os_list = ['x86_64-with-Ubuntu-14.04']):
         if m is not None:
             return True
     print "ERROR: unsupported OS: %s." % (os_platform)
+    sys.exit(1)
+
+def fail_unless_os_username(supported_username_list = ['root']):
+    current_username = getpass.getuser()
+    for username in supported_username_list:
+        if current_username == username:
+            return True
+    print "ERROR: unsupported os username: %s, supported users: %s" % \
+        (current_username, str(supported_username_list))
     sys.exit(1)
 
 # TODO: parameters check

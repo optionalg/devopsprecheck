@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-26>
-## Updated: Time-stamp: <2017-01-27 17:11:21>
+## Updated: Time-stamp: <2017-01-27 17:17:50>
 ##-------------------------------------------------------------------
 import sys, unittest
 # import the package
@@ -57,9 +57,6 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(paramater_helper.is_tcp_port("48080"), True)
         self.assertEqual(paramater_helper.is_tcp_port("65536"), False)
         self.assertEqual(paramater_helper.is_tcp_port("20,"), False)
-
-    def test_fail_unless_os_username(self):
-        self.assertEqual(paramater_helper.fail_unless_os_username(["root", "mac"]), True)
 
     def test_string_strip_comments(self):
         msg1 = '''

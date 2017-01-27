@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-26>
-## Updated: Time-stamp: <2017-01-27 16:03:28>
+## Updated: Time-stamp: <2017-01-27 17:18:43>
 ##-------------------------------------------------------------------
 import sys, unittest
 # import the package
@@ -29,7 +29,11 @@ class MyTestCase(unittest.TestCase):
     def test_fail_unless_os(self):
         self.assertEqual(systeminfo_helper.\
                          fail_unless_os(supported_os_list = ['x86_64-with-Ubuntu-14.04',\
-                                                               'Darwin-.*-x86_64']), True)
+                                                             'Darwin-.*-x86_64']), True)
+
+    def test_fail_unless_os_username(self):
+        self.assertEqual(systeminfo_helper.fail_unless_os_username(["root", "mac"]), True)
+
 def suite():
     suite = unittest.TestSuite()
     suite.addTest(MyTestCase())
