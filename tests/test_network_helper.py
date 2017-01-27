@@ -5,15 +5,14 @@
 ## Licensed under MIT 
 ##   https://raw.githubusercontent.com/DennyZhang/devops_public/master/LICENSE
 ##
-## File : test_devopsprecheck.py
+## File : test_network_helper.py
 ## Author : Denny <denny@dennyzhang.com>
 ## Description :
 ## --
 ## Created : <2017-01-26>
-## Updated: Time-stamp: <2017-01-27 10:55:49>
+## Updated: Time-stamp: <2017-01-27 11:04:27>
 ##-------------------------------------------------------------------
-import sys
-import unittest
+import sys, unittest
 
 # import the package
 import devopsprecheck
@@ -38,4 +37,4 @@ def suite():
     
 if __name__ == "__main__":
     unittest.TextTestRunner().run(suite())
-## File : test_devopsprecheck.py ends
+## File : test_network_helper.py ends
