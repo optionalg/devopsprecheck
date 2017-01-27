@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-24>
-## Updated: Time-stamp: <2017-01-27 15:48:25>
+## Updated: Time-stamp: <2017-01-27 15:49:58>
 ##-------------------------------------------------------------------
 
 __author__ = 'DennyZhang'
@@ -69,7 +69,7 @@ def fail_unless_root():
 def parse_ip_from_string(string):
     # get ip addresses from string
     '''
-     parse_ip_from_string
+     From:
  {
          # service hosts: deploy service to which host
          'couchbase_hosts':['172.17.0.2', '172.17.0.3'],
@@ -77,8 +77,8 @@ def parse_ip_from_string(string):
          'mdm_hosts':['172.17.0.3', '172.17.0.4'],
          'haproxy_hosts':['172.17.0.2','172.17.0.3'],
          'nagios_server':'172.17.0.4',"
-    # -->
-       #  ['172.17.0.2', '172.17.0.3', '172.17.0.4']
+    To:
+          ['172.17.0.2', '172.17.0.3', '172.17.0.4']
     '''
     string_without_comment = string_strip_comments(string)
     # TODO: update this
