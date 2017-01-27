@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-26>
-## Updated: Time-stamp: <2017-01-27 11:45:17>
+## Updated: Time-stamp: <2017-01-27 15:24:58>
 ##-------------------------------------------------------------------
 import sys, unittest
 # import the package
@@ -38,6 +38,27 @@ class MyTestCase(unittest.TestCase):
 
     def test_fail_unless_root(self):
         self.assertEqual(paramater_helper.fail_unless_root(), True)
+
+    def test_string_strip_comments(self):
+        msg1 = '''
+{
+ "common_basic":
+        {
+        # service hosts: deploy service to which host
+        "couchbase_hosts":["10.0.1.2", "10.0.1.3"],
+        "elasticsearch_hosts":["10.0.1.4", "10.0.1.5"],
+        "app_hosts":["10.0.1.6", "10.0.1.7"], # application nodes
+        # mdm app nodes, which we don't want to be recognized by loadbalancer
+        "app_hosts_noloadbalancer":["10.0.1.8", "10.0.1.9"],
+'''
+        msg1_ret = '''{
+"common_basic":
+{
+"couchbase_hosts":["10.0.1.2", "10.0.1.3"],
+"elasticsearch_hosts":["10.0.1.4", "10.0.1.5"],
+"app_hosts":["10.0.1.6", "10.0.1.7"],
+"app_hosts_noloadbalancer":["10.0.1.8", "10.0.1.9"],'''
+        self.assertEqual(paramater_helper.string_strip_comments(msg1), msg1_ret)
 
 def suite():
     suite = unittest.TestSuite()

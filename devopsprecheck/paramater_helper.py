@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-24>
-## Updated: Time-stamp: <2017-01-27 11:44:56>
+## Updated: Time-stamp: <2017-01-27 15:24:02>
 ##-------------------------------------------------------------------
 
 __author__ = 'DennyZhang'
@@ -51,8 +51,22 @@ def is_ip(string):
         return False
     return True
 
+def string_strip_comments(string, marker = '#'):
+    ret = []
+    for line in string.split("\n"):
+        if marker in line:
+            element = line[:line.index(marker)].strip()
+        else:
+            element = line.strip()
+        if element =="":
+            continue            
+        ret.append(element)
+    return "\n".join(ret)
+
 def fail_unless_root():
     return True
+
+# function remove_hardline() {
 
 # TODO: parameters check
 # function fail_unless_nubmer() {
@@ -67,11 +81,7 @@ def fail_unless_root():
 # function parse_json() {
 # function verify_ssh_key_file() {
 # function verify_comon_jenkins_parameters() {
-#
 # function source_string() {
-# function remove_hardline() {
-# function string_strip_whitespace() {
-# function string_strip_comments() {
 # function parse_ip_from_string() {
 # function caculate_date() {
 # function last_monday() {
