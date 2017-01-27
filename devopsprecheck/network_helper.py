@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-24>
-## Updated: Time-stamp: <2017-01-26 16:41:43>
+## Updated: Time-stamp: <2017-01-27 15:26:38>
 ##-------------------------------------------------------------------
 
 __author__ = 'DennyZhang'
@@ -21,5 +21,7 @@ __email__ = 'contact@denyzhang.com'
 # function check_ssh_available() {
 # function check_url_200() {
 # function check_network() {
+# function ip_ssh_reachable() {
+# function ip_list_ping_reachable() {
 
 ## File : network_helper.py ends

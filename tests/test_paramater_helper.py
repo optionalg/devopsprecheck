@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-26>
-## Updated: Time-stamp: <2017-01-27 15:24:58>
+## Updated: Time-stamp: <2017-01-27 15:44:26>
 ##-------------------------------------------------------------------
 import sys, unittest
 # import the package
@@ -59,6 +59,19 @@ class MyTestCase(unittest.TestCase):
 "app_hosts":["10.0.1.6", "10.0.1.7"],
 "app_hosts_noloadbalancer":["10.0.1.8", "10.0.1.9"],'''
         self.assertEqual(paramater_helper.string_strip_comments(msg1), msg1_ret)
+
+    def parse_ip_from_string(self):
+        msg1 = '''
+ {
+ # service hosts: deploy service to which host
+ 'couchbase_hosts':['172.17.0.2', '172.17.0.3'],
+ 'elasticsearch_hosts':['172.17.0.2', '172.17.0.3'],
+ 'mdm_hosts':['172.17.0.3', '172.17.0.4'],
+ 'haproxy_hosts':['172.17.0.2','172.17.0.3'],
+ 'nagios_server':'172.17.0.4',"
+'''
+        l = ['172.17.0.2', '172.17.0.3', '172.17.0.4']
+        self.assertEqual(paramater_helper.parse_ip_from_string(msg1), l)
 
 def suite():
     suite = unittest.TestSuite()
