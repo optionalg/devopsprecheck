@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-26>
-## Updated: Time-stamp: <2017-01-27 11:01:51>
+## Updated: Time-stamp: <2017-01-27 11:31:12>
 ##-------------------------------------------------------------------
 import sys, unittest
 # import the package
@@ -26,12 +26,17 @@ class MyTestCase(unittest.TestCase):
     def tearDown(self):
         i = 1
 
-    def testfun1(self):
+    def test_fail_unless_os(self):
+        self.assertEqual(paramater_helper.\
+                         fail_unless_os(supported_os_list = ['x86_64-with-Ubuntu-14.04',\
+                                                               'Darwin-.*-x86_64']), True)
+
+    def test_fail_unless_root(self):
         self.assertEqual(paramater_helper.fail_unless_root(), True)
 
 def suite():
     suite = unittest.TestSuite()
-    suite.addTest(MyTestCase("testfun1"))
+    suite.addTest(MyTestCase())
     return suite
     
 if __name__ == "__main__":

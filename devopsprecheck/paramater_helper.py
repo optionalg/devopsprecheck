@@ -10,17 +10,29 @@
 ## Description :
 ## --
 ## Created : <2017-01-24>
-## Updated: Time-stamp: <2017-01-27 10:57:35>
+## Updated: Time-stamp: <2017-01-27 11:30:58>
 ##-------------------------------------------------------------------
 
 __author__ = 'DennyZhang'
 __email__ = 'contact@denyzhang.com'
 
+import platform
+import re
+import sys
+
 def fail_unless_root():
     return True
 
+def fail_unless_os(supported_os_list = ['x86_64-with-Ubuntu-14.04']):
+    os_platform = platform.platform()
+    for supprted_os in supported_os_list:
+        m = re.search(supprted_os, os_platform)
+        if m is not None:
+            return True
+    print "ERROR: unsupported OS: %s." % (os_platform)
+    sys.exit(1)
+
 # TODO: parameters check
-# function fail_unless_os() {
 # function fail_unless_nubmer() {
 # function ensure_variable_isset() {
 # function is_ip() {
@@ -42,5 +54,4 @@ def fail_unless_root():
 # function parse_ip_from_string() {
 # function caculate_date() {
 # function last_monday() {
-
 ## File : paramater_helper.py ends
