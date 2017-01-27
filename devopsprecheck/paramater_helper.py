@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-24>
-## Updated: Time-stamp: <2017-01-27 11:30:58>
+## Updated: Time-stamp: <2017-01-27 11:44:56>
 ##-------------------------------------------------------------------
 
 __author__ = 'DennyZhang'
@@ -20,10 +20,9 @@ import platform
 import re
 import sys
 
-def fail_unless_root():
-    return True
-
 def fail_unless_os(supported_os_list = ['x86_64-with-Ubuntu-14.04']):
+    # Sample:
+    # fail_unless_os(supported_os_list = ['x86_64-with-Ubuntu-14.04', 'Darwin-.*-x86_64'])
     os_platform = platform.platform()
     for supprted_os in supported_os_list:
         m = re.search(supprted_os, os_platform)
@@ -32,10 +31,32 @@ def fail_unless_os(supported_os_list = ['x86_64-with-Ubuntu-14.04']):
     print "ERROR: unsupported OS: %s." % (os_platform)
     sys.exit(1)
 
+def is_ip(string):
+    pieces = string.split('.')
+    if len(pieces) != 4: return False
+    try:
+        p0 = int(pieces[0])
+        p1 = int(pieces[1])
+        p2 = int(pieces[2])
+        p3 = int(pieces[3])
+        if p0 <= 0 or p0 > 255:
+            return False
+        if p1 < 0 or p1 > 255:
+            return False
+        if p2 < 0 or p2 > 255:
+            return False
+        if p3 <= 0 or p3 >= 255:
+            return False
+    except ValueError:
+        return False
+    return True
+
+def fail_unless_root():
+    return True
+
 # TODO: parameters check
 # function fail_unless_nubmer() {
 # function ensure_variable_isset() {
-# function is_ip() {
 # function is_tcp_port() {
 # function check_string_schema() {
 # function check_list_fields() {

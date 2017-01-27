@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-24>
-## Updated: Time-stamp: <2017-01-26 17:11:13>
+## Updated: Time-stamp: <2017-01-27 11:37:31>
 ##-------------------------------------------------------------------
 from setuptools import setup
 
@@ -35,7 +35,6 @@ setup(name='devopsprecheck',
       ],
       packages=['devopsprecheck'],
       install_requires=[
-          'pypandoc'
       ],
       entry_points={
           'console_scripts': [
