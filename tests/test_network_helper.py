@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-26>
-## Updated: Time-stamp: <2017-01-27 11:04:27>
+## Updated: Time-stamp: <2017-01-27 16:43:59>
 ##-------------------------------------------------------------------
 import sys, unittest
 
@@ -28,7 +28,8 @@ class MyTestCase(unittest.TestCase):
         i = 1
 
     def testfun1(self):
-        self.assertEqual(paramater_helper.fail_unless_root(), True)
+        i = 2
+        # self.assertEqual(paramater_helper.fail_unless_root(), True)
 
 def suite():
     suite = unittest.TestSuite()

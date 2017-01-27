@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-24>
-## Updated: Time-stamp: <2017-01-27 16:04:26>
+## Updated: Time-stamp: <2017-01-27 16:44:24>
 ##-------------------------------------------------------------------
 
 __author__ = 'DennyZhang'
@@ -18,6 +18,7 @@ __email__ = 'contact@denyzhang.com'
 
 import re
 import sys
+import getpass
 
 def is_ip(string):
     pieces = string.split('.')
@@ -51,9 +52,14 @@ def string_strip_comments(string, marker = '#'):
         ret.append(element)
     return "\n".join(ret)
 
-def fail_unless_root():
-    # TODO
-    return True
+def fail_unless_os_username(supported_username_list = ['root']):
+    current_username = getpass.getuser()
+    for username in supported_username_list:
+        if current_username == username:
+            return True
+    print "ERROR: unsupported os username: %s, supported users: %s" % \
+        (current_username, str(supported_username_list))
+    sys.exit(1)
 
 def parse_ip_from_string(string):
     # get ip addresses from string

@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-26>
-## Updated: Time-stamp: <2017-01-27 16:03:43>
+## Updated: Time-stamp: <2017-01-27 16:43:26>
 ##-------------------------------------------------------------------
 import sys, unittest
 # import the package
@@ -32,8 +32,8 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(paramater_helper.is_ip("192.168.0.255"), False)
         self.assertEqual(paramater_helper.is_ip("192.168.0,0"), False)
 
-    def test_fail_unless_root(self):
-        self.assertEqual(paramater_helper.fail_unless_root(), True)
+    def test_fail_unless_os_username(self):
+        self.assertEqual(paramater_helper.fail_unless_os_username(["root", "mac"]), True)
 
     def test_string_strip_comments(self):
         msg1 = '''
