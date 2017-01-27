@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-24>
-## Updated: Time-stamp: <2017-01-27 16:44:24>
+## Updated: Time-stamp: <2017-01-27 17:12:39>
 ##-------------------------------------------------------------------
 
 __author__ = 'DennyZhang'
@@ -35,6 +35,24 @@ def is_ip(string):
         if p2 < 0 or p2 > 255:
             return False
         if p3 <= 0 or p3 >= 255:
+            return False
+    except ValueError:
+        return False
+    return True
+
+def is_ip_list(string):
+    string_without_comment = string_strip_comments(string)
+    ip_list = parse_ip_from_string(string_without_comment)
+    for ip in ip_list:
+        if is_ip(ip) is False:
+            # print "ERROR: invalid ip: %s" % (ip)
+            return False
+    return True
+
+def is_tcp_port(string):
+    try:
+        port = int(string)
+        if port <=0 or port >= 65535:
             return False
     except ValueError:
         return False
@@ -83,7 +101,6 @@ def parse_ip_from_string(string):
 # TODO: parameters check
 # function fail_unless_nubmer() {
 # function ensure_variable_isset() {
-# function is_tcp_port() {
 # function check_string_schema() {
 # function check_list_fields() {
 # function enforce_ssh_check() {

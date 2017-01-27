@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-24>
-## Updated: Time-stamp: <2017-01-27 15:26:38>
+## Updated: Time-stamp: <2017-01-27 16:56:08>
 ##-------------------------------------------------------------------
 
 __author__ = 'DennyZhang'
@@ -19,6 +19,7 @@ __email__ = 'contact@denyzhang.com'
 # TODO: parameters check
 # function is_port_listening() {
 # function check_ssh_available() {
+# function is_tcp_port() {
 # function check_url_200() {
 # function check_network() {
 # function ip_ssh_reachable() {

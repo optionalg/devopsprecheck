@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-26>
-## Updated: Time-stamp: <2017-01-27 16:43:26>
+## Updated: Time-stamp: <2017-01-27 17:11:21>
 ##-------------------------------------------------------------------
 import sys, unittest
 # import the package
@@ -31,6 +31,32 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(paramater_helper.is_ip("192.168.0.0"), False)
         self.assertEqual(paramater_helper.is_ip("192.168.0.255"), False)
         self.assertEqual(paramater_helper.is_ip("192.168.0,0"), False)
+
+    def test_is_ip_list(self):
+        msg1 ='''
+# CB
+192.168.0.1 # cb-01
+192.168.0.2
+# Elasticsearch
+192.168.0.3
+192.168.0.4
+'''
+        self.assertEqual(paramater_helper.is_ip_list(msg1), True)
+
+        msg2 ='''
+# CB
+192.168.0.1 # cb-01
+192.168.0.2
+# Elasticsearch
+192.168.0.3
+192.168.0.0
+'''
+        self.assertEqual(paramater_helper.is_ip_list(msg2), False)
+
+    def test_is_tcp_port(self):
+        self.assertEqual(paramater_helper.is_tcp_port("48080"), True)
+        self.assertEqual(paramater_helper.is_tcp_port("65536"), False)
+        self.assertEqual(paramater_helper.is_tcp_port("20,"), False)
 
     def test_fail_unless_os_username(self):
         self.assertEqual(paramater_helper.fail_unless_os_username(["root", "mac"]), True)
