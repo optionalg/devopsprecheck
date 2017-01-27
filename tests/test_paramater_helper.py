@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-26>
-## Updated: Time-stamp: <2017-01-27 15:44:26>
+## Updated: Time-stamp: <2017-01-27 16:03:43>
 ##-------------------------------------------------------------------
 import sys, unittest
 # import the package
@@ -26,10 +26,6 @@ class MyTestCase(unittest.TestCase):
     def tearDown(self):
         i = 1
 
-    def test_fail_unless_os(self):
-        self.assertEqual(paramater_helper.\
-                         fail_unless_os(supported_os_list = ['x86_64-with-Ubuntu-14.04',\
-                                                               'Darwin-.*-x86_64']), True)
     def test_is_ip(self):
         self.assertEqual(paramater_helper.is_ip("192.168.0.1"), True)
         self.assertEqual(paramater_helper.is_ip("192.168.0.0"), False)

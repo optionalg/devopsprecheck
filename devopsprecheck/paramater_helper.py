@@ -10,26 +10,14 @@
 ## Description :
 ## --
 ## Created : <2017-01-24>
-## Updated: Time-stamp: <2017-01-27 15:49:58>
+## Updated: Time-stamp: <2017-01-27 16:04:26>
 ##-------------------------------------------------------------------
 
 __author__ = 'DennyZhang'
 __email__ = 'contact@denyzhang.com'
 
-import platform
 import re
 import sys
-
-def fail_unless_os(supported_os_list = ['x86_64-with-Ubuntu-14.04']):
-    # Sample:
-    # fail_unless_os(supported_os_list = ['x86_64-with-Ubuntu-14.04', 'Darwin-.*-x86_64'])
-    os_platform = platform.platform()
-    for supprted_os in supported_os_list:
-        m = re.search(supprted_os, os_platform)
-        if m is not None:
-            return True
-    print "ERROR: unsupported OS: %s." % (os_platform)
-    sys.exit(1)
 
 def is_ip(string):
     pieces = string.split('.')
@@ -64,6 +52,7 @@ def string_strip_comments(string, marker = '#'):
     return "\n".join(ret)
 
 def fail_unless_root():
+    # TODO
     return True
 
 def parse_ip_from_string(string):
@@ -86,7 +75,6 @@ def parse_ip_from_string(string):
     return l
 
 # TODO: parameters check
-# function parse_ip_from_string() {
 # function fail_unless_nubmer() {
 # function ensure_variable_isset() {
 # function is_tcp_port() {
