@@ -10,14 +10,15 @@
 ## Description :
 ## --
 ## Created : <2017-01-24>
-## Updated: Time-stamp: <2017-01-27 17:43:13>
+## Updated: Time-stamp: <2017-01-27 17:57:01>
 ##-------------------------------------------------------------------
 
 __author__ = 'DennyZhang'
 __email__ = 'contact@denyzhang.com'
 
+import sys, os
+import stat
 import re
-import sys
 
 def is_ip(string):
     pieces = string.split('.')
@@ -89,6 +90,17 @@ def parse_ip_from_string(string):
     l = list(set(l))
     return l
 
+################################################################################
+# Only support linux
+def verify_ssh_keyfile_linux(ssh_keyfile):
+    if os.path.exists(ssh_keyfile) is False:
+        return False
+    file_mode = oct(stat.S_IMODE(os.lstat(ssh_keyfile).st_mode))
+    if file_mode not in ['0600', '0400']:
+        return False
+    return True
+################################################################################
+
 # TODO: parameters check
 # function fail_unless_nubmer() {
 # function ensure_variable_isset() {
@@ -97,7 +109,6 @@ def parse_ip_from_string(string):
 # function enforce_ssh_check() {
 # function enforce_ip_ping_check() {
 # function parse_json() {
-# function verify_ssh_key_file() {
 # function verify_comon_jenkins_parameters() {
 # function source_string() {
 # function caculate_date() {

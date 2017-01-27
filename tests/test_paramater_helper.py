@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-26>
-## Updated: Time-stamp: <2017-01-27 17:17:50>
+## Updated: Time-stamp: <2017-01-27 17:57:18>
 ##-------------------------------------------------------------------
 import sys, unittest
 # import the package
@@ -91,6 +91,10 @@ class MyTestCase(unittest.TestCase):
 '''
         l = ['172.17.0.2', '172.17.0.3', '172.17.0.4']
         self.assertEqual(paramater_helper.parse_ip_from_string(msg1), l)
+
+    def test_verify_ssh_keyfile_linux(self):
+        self.assertEqual(paramater_helper.verify_ssh_keyfile_linux("/Users/mac/.ssh/id_rsa"), True)
+        self.assertEqual(paramater_helper.verify_ssh_keyfile_linux("/Users/mac/.ssh/id_rsa_false"), False)
 
 def suite():
     suite = unittest.TestSuite()
