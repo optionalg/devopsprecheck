@@ -1,2 +1,3 @@
 devopsprecheck.egg-info
 dist
+*.pyc

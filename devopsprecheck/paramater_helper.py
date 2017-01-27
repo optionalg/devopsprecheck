@@ -10,14 +10,16 @@
 ## Description :
 ## --
 ## Created : <2017-01-24>
-## Updated: Time-stamp: <2017-01-26 16:45:40>
+## Updated: Time-stamp: <2017-01-27 10:57:35>
 ##-------------------------------------------------------------------
 
 __author__ = 'DennyZhang'
 __email__ = 'contact@denyzhang.com'
 
+def fail_unless_root():
+    return True
+
 # TODO: parameters check
-# function fail_unless_root() {
 # function fail_unless_os() {
 # function fail_unless_nubmer() {
 # function ensure_variable_isset() {
