@@ -10,13 +10,14 @@
 ## Description :
 ## --
 ## Created : <2017-01-24>
-## Updated: Time-stamp: <2017-01-27 18:08:30>
+## Updated: Time-stamp: <2017-01-27 18:18:13>
 ##-------------------------------------------------------------------
 
 __author__ = 'DennyZhang'
 __email__ = 'contact@denyzhang.com'
 
 import socket
+import urllib
 
 def is_port_reachable(tcp_port, server_ip = '127.0.0.1'):
     # TODO: add timeout mechanism
@@ -24,9 +25,11 @@ def is_port_reachable(tcp_port, server_ip = '127.0.0.1'):
     result = sock.connect_ex((server_ip, int(tcp_port)))
     return result == 0
 
+def check_url_200(http_url):
+    return urllib.urlopen(http_url).getcode() == 200
+
 # TODO: parameters check
 # function check_ssh_available() {
-# function check_url_200() {
 # function check_network() {
 # function ip_ssh_reachable() {
 # function ip_list_ping_reachable() {

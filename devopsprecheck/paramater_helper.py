@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-24>
-## Updated: Time-stamp: <2017-01-27 17:57:01>
+## Updated: Time-stamp: <2017-01-27 18:15:46>
 ##-------------------------------------------------------------------
 
 __author__ = 'DennyZhang'
@@ -113,4 +113,5 @@ def verify_ssh_keyfile_linux(ssh_keyfile):
 # function source_string() {
 # function caculate_date() {
 # function last_monday() {
+
 ## File : paramater_helper.py ends

@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-26>
-## Updated: Time-stamp: <2017-01-27 18:09:27>
+## Updated: Time-stamp: <2017-01-27 18:18:43>
 ##-------------------------------------------------------------------
 import sys, unittest
 
@@ -26,6 +26,9 @@ class MyTestCase(unittest.TestCase):
 
     def tearDown(self):
         i = 1
+
+    def test_check_url_200(self):
+        self.assertEqual(network_helper.check_url_200('https://www.google.com'), True)
 
     # TODO: enable testcase
     # def test_is_port_reachable(self):
