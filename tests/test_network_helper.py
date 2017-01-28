@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-26>
-## Updated: Time-stamp: <2017-01-27 16:43:59>
+## Updated: Time-stamp: <2017-01-27 18:09:27>
 ##-------------------------------------------------------------------
 import sys, unittest
 
@@ -18,7 +18,7 @@ import sys, unittest
 import devopsprecheck
 
 # import module
-from devopsprecheck import paramater_helper
+from devopsprecheck import network_helper
 
 class MyTestCase(unittest.TestCase):
     def setUp(self):
@@ -27,13 +27,15 @@ class MyTestCase(unittest.TestCase):
     def tearDown(self):
         i = 1
 
-    def testfun1(self):
-        i = 2
-        # self.assertEqual(paramater_helper.fail_unless_root(), True)
+    # TODO: enable testcase
+    # def test_is_port_reachable(self):
+    #     self.assertEqual(network_helper.is_port_reachable('445', '127.0.0.1'), True)
+    #     self.assertEqual(network_helper.is_port_reachable('27013', '45.33.87.74'), False)
+    #     self.assertEqual(network_helper.is_port_reachable('27013', '45.33.87.75'), False)
 
 def suite():
     suite = unittest.TestSuite()
-    suite.addTest(MyTestCase("testfun1"))
+    suite.addTest(MyTestCase())
     return suite
     
 if __name__ == "__main__":
