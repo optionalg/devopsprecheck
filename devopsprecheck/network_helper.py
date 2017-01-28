@@ -10,7 +10,7 @@
 ## Description :
 ## --
 ## Created : <2017-01-24>
-## Updated: Time-stamp: <2017-01-27 18:18:13>
+## Updated: Time-stamp: <2017-01-27 18:27:29>
 ##-------------------------------------------------------------------
 
 __author__ = 'DennyZhang'
@@ -28,10 +28,12 @@ def is_port_reachable(tcp_port, server_ip = '127.0.0.1'):
 def check_url_200(http_url):
     return urllib.urlopen(http_url).getcode() == 200
 
+def ip_ssh_reachable(ssh_ip, ssh_port, ssh_keyfile, username):
+    # TODO
+    return True
+
 # TODO: parameters check
-# function check_ssh_available() {
 # function check_network() {
-# function ip_ssh_reachable() {
 # function ip_list_ping_reachable() {
 
 ## File : network_helper.py ends
